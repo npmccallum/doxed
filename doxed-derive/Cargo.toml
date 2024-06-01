@@ -1,0 +1,16 @@
+[package]
+name = "doxed-derive"
+edition = "2021"
+authors = ["Nathaniel McCallum <nathaniel@mccallum.life>"]
+license = "Apache-2.0"
+repository = "https://github.com/npmccallum/doxed"
+version = "0.1.0"
+description = "A derive crate for doxed. You don't want this."
+
+[lib]
+proc-macro = true
+path = "src/lib.rs"
+
+[dependencies]
+syn = { version = "2.0" }
+quote = "1.0"

@@ -1,0 +1,15 @@
+[package]
+name = "doxed"
+edition = "2021"
+authors = ["Nathaniel McCallum <nathaniel@mccallum.life>"]
+license = "Apache-2.0"
+repository = "https://github.com/npmccallum/doxed"
+version = "0.1.0"
+description = "A crate for making Rust doc strings available at runtime."
+
+[features]
+default = ["derive"]
+derive = ["doxed-derive"]
+
+[dependencies]
+doxed-derive = { path = "../doxed-derive", version = "0.1.0", optional = true }

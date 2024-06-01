@@ -1,0 +1,25 @@
+on: [push, pull_request]
+name: test
+jobs:
+  test:
+    name: test ${{ matrix.toolchain }} ${{ matrix.profile.name }} ${{ matrix.crates.name }} ${{ matrix.crates.feat }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Rust
+        run: rustup toolchain install ${{ matrix.toolchain }}
+      - name: cargo test
+        run: cargo +${{ matrix.toolchain }} test --manifest-path=${{ matrix.crates.name }}/Cargo.toml ${{ matrix.profile.flag }} --no-default-features --features=${{ matrix.crates.feat }}
+    strategy:
+      fail-fast: false
+      matrix:
+        toolchain:
+          - 1.56.0
+          - stable
+          - beta
+          - nightly
+        crates:
+          - {name: doxed, feat: derive}
+        profile:
+          - {name: debug}
+          - {name: release, flag: --release}
