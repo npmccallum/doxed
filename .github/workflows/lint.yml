@@ -19,6 +19,15 @@ jobs:
       - name: cargo clippy
         run: cargo clippy --workspace --all-features --tests -- -D warnings
 
+  publish:
+    name: cargo publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo publish -p doxed-derive --dry-run
+      - run: cargo publish -p doxed --dry-run
+
   readme:
     name: cargo readme
     runs-on: ubuntu-latest
