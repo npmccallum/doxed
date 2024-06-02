@@ -40,7 +40,6 @@
 #![no_std]
 
 #[cfg(feature = "derive")]
-#[doc(hidden)]
 pub use doxed_derive::Doxed;
 
 /// A trait for types that have a doc string.
