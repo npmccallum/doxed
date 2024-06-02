@@ -4,7 +4,7 @@ edition = "2021"
 authors = ["Nathaniel McCallum <nathaniel@mccallum.life>"]
 license = "Apache-2.0"
 repository = "https://github.com/npmccallum/doxed"
-version = "0.1.0"
+version = "0.1.1"
 description = "A derive crate for doxed. You don't want this."
 
 [lib]
