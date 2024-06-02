@@ -27,9 +27,9 @@
 //! /// Multiple lines are supported.
 //! #[doc = "So are manual doc attributes."]
 //! #[derive(Doxed)]
-//! struct Example;
+//! struct Example<'a, T>(&'a T);
 //!
-//! assert_eq!(Example::DOX, &[
+//! assert_eq!(Example::<()>::DOX, &[
 //!     " This is an example struct.",
 //!     "",
 //!     " Multiple lines are supported.",
